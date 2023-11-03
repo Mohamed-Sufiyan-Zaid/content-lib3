@@ -1,0 +1,36 @@
+@import "../../styles/typography.scss";
+@import "../../styles/variables.scss";
+
+.prompt-details-container {
+	color: $textBlack;
+	padding: 0.25rem 0rem 0.25rem 0rem;
+	min-width: 700px;
+	.prompt-details {
+		width: 100%;
+		&.admin {
+			margin-bottom: 1rem;
+		}
+		.prompt-text {
+			padding: 9px 0 4px 0;
+			color: $textBlack;
+			@include font-size(3);
+			@include font-weight();
+		}
+		.prompt-data-header {
+			@include font-size(3);
+			@include font-weight("bold-600");
+			margin-bottom: 2px;
+		}
+		.prompt-sub-detail-container {
+			display: flex;
+			flex-wrap: wrap;
+			.prompt-grid-items {
+				flex-basis: calc(100% / 3);
+				margin-top: 1.25rem;
+				&.admin {
+					flex-basis: calc(100% / 5);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,28 @@
+@import "../../../styles//typography.scss";
+
+.tabsContainer {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0;
+	gap: 2rem;
+}
+
+.MuiTabs-root {
+	background: #fff;
+	.MuiTabs-indicator {
+		height: 6px;
+	}
+}
+
+.tabRoot {
+	background: #fff;
+	text-align: center;
+	color: #737373;
+	text-transform: capitalize;
+	@include font-size(4);
+	@include font-weight("semi-bold");
+	padding: 0;
+	&.selected {
+		color: #0e0e0e;
+	}
+}

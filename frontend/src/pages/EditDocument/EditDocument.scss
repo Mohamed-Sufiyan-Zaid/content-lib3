@@ -1,0 +1,27 @@
+@import "../../styles/variables.scss";
+
+.edit-doc {
+	& .document-header {
+		border-bottom: 1px solid $fieldBorder3;
+	}
+	padding: 1rem 0 1rem 1rem;
+	.edit-document-container {
+		height: calc(98vh - #{$headerMinHeight});
+		margin-right: 1rem;
+		.document-editor-content {
+			overflow-y: auto;
+		}
+
+		.doc-header {
+			p {
+				margin: auto;
+			}
+		}
+	}
+	.edit-doc-btn {
+		border-width: 1px;
+		&:hover {
+			border-width: 2px;
+		}
+	}
+}

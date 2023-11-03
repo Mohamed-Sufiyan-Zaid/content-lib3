@@ -1,0 +1,33 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/typography.scss";
+
+.header {
+	position: sticky;
+	top: 0;
+	width: 100%;
+	background-color: $secondary1;
+	color: $textHeading2;
+	border-bottom: 2px solid $textHeading2;
+	z-index: 1000; /* Ensures the header is on top of other content */
+	min-height: $headerMinHeight;
+	.header-contents {
+		margin: 0 auto;
+		width: 100%;
+		max-width: 1440px;
+		.logo {
+			width: 168px;
+			cursor: pointer;
+		}
+		.divider {
+			height: 40px;
+			width: 1px;
+			border-right: 1px solid $textBlack;
+		}
+		.header-title {
+			cursor: pointer;
+		}
+		.main-heading {
+			@include font-weight("bold-600");
+		}
+	}
+}

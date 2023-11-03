@@ -1,0 +1,48 @@
+@import "../../styles/typography.scss";
+@import "../../styles/variables.scss";
+
+.advanced-settings-container {
+	.advanced-settings {
+		padding: 30px;
+		padding-top: 0;
+	}
+	.pull-right {
+		float: right;
+	}
+	.row {
+		margin-left: 0px;
+		margin-right: 0px;
+		margin-top: 10px;
+	}
+	.heading {
+		padding: 15px 0px 15px 15px;
+		font-size: 18px;
+		font-weight: 700;
+	}
+	.sub-heading {
+		margin: 10px 0px 10px 0px;
+		color: $textBlack;
+		@include font-size(1);
+		@include font-weight("bold");
+	}
+	.box {
+		background-color: #faf7f7;
+		max-height: 500px;
+		overflow: auto;
+		padding: 10px 0px 10px 0px;
+	}
+	.icon-middle {
+		cursor: pointer;
+	}
+	.MuiDivider-root {
+		border-color: #ccc;
+	}
+	.MuiFormControl-root {
+		margin: 0px;
+	}
+	.advanced-heading h1 {
+		font-size: 24px;
+		@include font-weight("bolder");
+		color: $textBlack;
+	}
+}

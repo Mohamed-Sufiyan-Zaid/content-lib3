@@ -1,0 +1,79 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+//Assumption - Domain, Sub-domain & user information will 
+//come as part of headers from User Management
+Table project as P {
+  id uuid [primary Key]
+  domain_id uuid
+  sub_domain_id uuid
+  nt_id uuid
+  group_name varchar
+  project_name varchar
+  version integer
+  //orm defaults
+  created_at timestamp 
+  created_by uuid // NT ID of user from User Management
+  modified_at timestamp
+  lastModified_by uuid // NT ID of user from User Management
+}
+
+enum creation_type {
+    CREATED
+    UPLOADED
+}
+enum file_type {
+    WORD
+    PDF
+}
+
+Table template as T {
+  id uuid [primary key]
+  template_name varchar
+  s3_bucket_path varchar
+  project_id uuid [ref: > P.id]
+  template_creation_type creation_type
+  template_file_type file_type [default: 'WORD']
+  //orm defaults
+  created_at timestamp 
+  created_by uuid // NT ID of user from User Management
+  modified_at timestamp
+  lastModified_by uuid // NT ID of user from User Management
+}
+
+Table template_placeholder as TP {
+  id uuid [primary key]
+  template_id uuid [ref: > T.id]
+}
+
+Table document as D{
+  id uuid [primary key]
+  doc_name varchar
+  domain_id uuid
+  sub_domain_id integer
+  s3_bucket_path varchar
+  template_id uuid [ref: > T.id]
+  project_id uuid [ref: > P.id]
+  default_prompt_ids list(int)
+  default_prompt_text list(varchar)
+  content_library varchar
+  content_library_metadata varchar
+  //doc_author integer
+  //orm defaults
+  created_at timestamp 
+  created_by uuid // NT ID of user from User Management
+  modified_at timestamp
+  lastModified_by uuid // NT ID of user from User Management
+}
+
+Table document_placeholder {
+  id uuid [primary key]
+  doc_id uuid [ref: > D.id]
+  template_placeholder_id uuid [ref: > TP.id]
+  chat_history_id uuid
+}
+
+Table chat_history {
+  id uuid [primary key]
+  chat_history JSON
+}

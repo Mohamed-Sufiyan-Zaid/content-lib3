@@ -1,0 +1,26 @@
+.doc-container {
+	.container {
+		padding: 0 6rem;
+		.custom-grid {
+			display: flex;
+			flex-wrap: wrap;
+
+			.custom-cell {
+				padding: 1.125rem;
+				/* Custom CSS for the second row cells with top margin */
+				&:nth-child(3),
+				&:nth-child(4) {
+					margin-top: 1.25rem;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 1439px) {
+	.doc-container {
+		.container {
+			padding: 0 3rem;
+		}
+	}
+}

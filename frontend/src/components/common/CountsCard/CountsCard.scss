@@ -1,0 +1,16 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/typography.scss";
+
+.card-container {
+	.card-title {
+		@include font-size(5);
+		@include font-weight();
+		color: $textHeading;
+		text-align: left;
+	}
+	.stats-number {
+		@include font-size(9);
+		@include font-weight("thin");
+		color: $textGray1;
+	}
+}

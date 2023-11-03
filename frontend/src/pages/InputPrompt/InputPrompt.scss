@@ -1,0 +1,15 @@
+.InputPrompt {
+	.MuiDialog-paper {
+		width: 850px;
+		height: 920px;
+	}
+	.dialog-content-container {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+	.chat-messages-container {
+		// overflow-y: auto;
+		flex-grow: 1;
+	}
+}

@@ -1,0 +1,66 @@
+@import "../../styles/typography.scss";
+@import "../../styles/variables.scss";
+.message {
+	color: $textBlack;
+	@include font-size(4);
+	@include font-weight("normal");
+	background: transparent;
+	line-height: 161.182%; /* 1.81331rem */
+	max-width: 56rem;
+	p {
+		margin: 0;
+	}
+}
+
+.reply-message {
+	background: $background5;
+}
+.message-tile {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+}
+.message-tile,
+.reply-panel {
+	padding: 0.75rem;
+}
+
+.text-message {
+	margin-left: 0.75rem;
+	flex-basis: 100%;
+	p {
+		margin-bottom: 1rem;
+	}
+}
+
+.reply-panel {
+	text-align: right;
+	align-items: center;
+	justify-content: space-between;
+	.citations-container {
+		margin-bottom: 0.5rem;
+		p {
+			margin: 0;
+		}
+		.citations {
+			color: $primary;
+			@include font-size(3);
+			@include font-weight("bold-600");
+			line-height: 161.182%; /* 1.61181rem */
+			margin-right: 1rem;
+			cursor: pointer;
+		}
+		.citations-content {
+			border-radius: 0.4rem;
+			padding: 0;
+			background: rgba(43, 80, 186, 0.21);
+			display: flex;
+			align-items: flex-start;
+			padding: 0 0.5rem;
+			color: $primary;
+			@include font-size(2);
+			@include font-weight("bold-600");
+			line-height: 161.182%; /* 1.41031rem */
+		}
+	}
+}

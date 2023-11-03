@@ -1,0 +1,38 @@
+@import "../../styles/variables.scss";
+@import "../../styles/typography.scss";
+
+.sidebar-container {
+	height: 100%;
+	position: absolute;
+	left: 0;
+	background-color: $primary;
+	.heading {
+		color: white;
+		@include font-size(5);
+		@include font-weight();
+	}
+	.button-container {
+		padding: 4px 8px;
+	}
+	.user-profile-container {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		border-top: 1px solid white;
+		color: white;
+		width: 90%;
+		padding: 12px 0;
+		@include font-weight("semi-bold");
+		.user-thumbnail > span:first-of-type {
+			margin-left: 4px;
+			width: 25px;
+			height: 25px;
+			background-color: $secondary3;
+			margin-right: 10px;
+		}
+		.user-name {
+			@include font-size(4);
+		}
+	}
+}

@@ -1,0 +1,30 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/typography.scss";
+
+.user-tag-card {
+	padding: 5px;
+	margin: 5px;
+	width: 450px;
+	height: 40px;
+
+	.user-tag-card-container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.user-info {
+		display: flex;
+		align-items: center;
+	}
+
+	.user-name {
+		@include font-size(1);
+		margin-left: 5px;
+	}
+
+	.user-icon {
+		@include font-size(1);
+		color: $textLightGray2;
+	}
+}

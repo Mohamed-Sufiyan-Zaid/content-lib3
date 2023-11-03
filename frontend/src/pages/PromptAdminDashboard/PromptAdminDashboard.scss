@@ -1,0 +1,53 @@
+@import "../../styles/typography.scss";
+@import "../../styles/variables.scss";
+
+.prompt-admin-container {
+	padding: 2rem 1rem 1rem 1.5rem;
+	.section-header {
+		@include font-weight("bold-600");
+		@include font-size(4);
+	}
+	.content-header {
+		justify-content: space-between;
+		margin-bottom: 1.5rem;
+	}
+
+	.prompt-request-container {
+		background: $background3;
+		border-radius: 6px;
+		.prompt-actions {
+			display: flex;
+			padding: 1rem;
+			justify-content: space-between;
+			align-items: center;
+			padding: 1rem;
+			.prompt-actions-left {
+				display: flex;
+				align-items: center;
+				span {
+					color: $textLightGray2;
+					@include font-size(2);
+					@include font-weight("bold-600");
+					margin-right: 1rem;
+				}
+				.prompt-request-type-dropdown {
+					display: flex;
+					gap: 1rem;
+					max-height: 2rem;
+					width: 8rem;
+				}
+			}
+			.prompt-actions-right {
+				display: flex;
+				align-items: center;
+				justify-items: center;
+				gap: 1rem;
+			}
+		}
+		.no-records {
+			height: 100px;
+			color: $textLightGray2;
+			@include font-weight("normal");
+		}
+	}
+}

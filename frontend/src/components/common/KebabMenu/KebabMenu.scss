@@ -1,0 +1,19 @@
+@import "../../../styles/typography.scss";
+@import "../../../styles/variables.scss";
+
+.single-menu-item {
+	padding: 0.5rem 0;
+	border-bottom: 1px solid $textLightGray1;
+	&.last {
+		border-bottom: none;
+	}
+	img {
+		margin-right: 10px;
+		height: 1rem;
+	}
+	p {
+		@include font-size(2);
+		@include font-weight("thin");
+		margin: 0;
+	}
+}

@@ -1,0 +1,18 @@
+@import "../../../styles/typography.scss";
+@import "../../../styles/variables.scss";
+
+.project-details-header {
+	.doc-heading {
+		@include font-size(5);
+		@include font-weight();
+		color: $textBlack;
+	}
+	.doc-created {
+		color: $neutral1;
+		font-style: italic;
+		span {
+			font-style: normal;
+			@include font-weight();
+		}
+	}
+}

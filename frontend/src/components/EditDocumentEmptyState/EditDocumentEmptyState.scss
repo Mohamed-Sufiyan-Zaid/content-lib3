@@ -1,0 +1,19 @@
+@import "../../styles/variables.scss";
+@import "../../styles/typography.scss";
+
+.edit-doc-empty {
+	height: 100%;
+	.empty-doc-header {
+		color: $textGray3;
+		text-align: center;
+		@include font-size(5);
+		@include font-weight("semi-bold");
+		margin-top: 1.25rem;
+	}
+	.empty-doc-subheader {
+		color: $textGray2;
+		text-align: center;
+		@include font-size(2);
+		@include font-weight("thin");
+	}
+}

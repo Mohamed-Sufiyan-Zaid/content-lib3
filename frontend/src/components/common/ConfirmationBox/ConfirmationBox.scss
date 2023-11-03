@@ -1,0 +1,31 @@
+@import "../../../styles/typography.scss";
+@import "../../../styles/variables.scss";
+
+.MuiDialogTitle-root {
+	@include font-size(6);
+	@include font-weight("thin");
+	color: $primary;
+	text-align: center;
+
+	@media screen and (max-width: 1440px) {
+		font-size: 28px;
+	}
+}
+
+.confirmation-btns {
+	border-width: 1px;
+	@include font-size(3);
+	@include font-weight("normal");
+	&:hover {
+		border-width: 2px;
+	}
+}
+
+.MuiDialog-paper {
+	padding: 1.5rem;
+}
+
+.confirmation-box-divider {
+	background: $fieldBorder3;
+	height: 1.5px;
+}

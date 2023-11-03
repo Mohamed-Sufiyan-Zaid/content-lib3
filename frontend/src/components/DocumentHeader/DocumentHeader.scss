@@ -1,0 +1,19 @@
+@import "../../styles/typography.scss";
+.doc-header {
+	background-color: #fff;
+	.input-label,
+	.label-value {
+		@include font-size(4);
+	}
+	.input-label {
+		@include font-weight();
+	}
+	.divider {
+		background: #cfcfcf;
+	}
+	.cust-select-width {
+		.mui-custom-select {
+			width: 250px;
+		}
+	}
+}

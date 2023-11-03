@@ -1,0 +1,83 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/typography.scss";
+
+.uploadBox {
+	p {
+		margin-bottom: 0;
+	}
+	.hidden {
+		display: none;
+	}
+	.card-title {
+		@include font-size(6);
+		color: $primary;
+		text-align: center;
+		margin-bottom: 1rem;
+		font-style: normal;
+		line-height: 2.5rem;
+	}
+	.dotted-div {
+		border: 0.0625rem dashed $textGray2;
+		border-radius: 0.25rem;
+		padding: 5rem 0 4rem;
+		.upload-text {
+			@include font-weight("semi-bold");
+			@include font-size(5);
+			color: $textBlack;
+			margin: 1.25rem 0 0.5rem;
+			font-style: normal;
+			line-height: 2.5rem;
+		}
+		.sub-upload-text {
+			@include font-weight("thin");
+			@include font-size(5);
+			line-height: 2.5rem;
+			margin-bottom: 1.25rem;
+		}
+		.uploaded-files {
+			min-width: 100%;
+			padding: 0 0.7rem 0 1.5rem;
+		}
+		.file-tile {
+			background: $background3;
+			width: 100%;
+			padding: 0 1rem 0 2rem;
+		}
+		.file-name {
+			@include font-weight("thin");
+			@include font-size(2);
+			color: $textBlack;
+			margin-left: 1rem;
+			line-height: 2.5rem;
+		}
+	}
+	.template-info {
+		.file-format {
+			@include font-weight("normal");
+			@include font-size(2);
+			color: $textGray3;
+			font-style: italic;
+			line-height: 2rem;
+		}
+		.download-template {
+			@include font-weight("normal");
+			@include font-size(2);
+			color: $textHeading3;
+			font-style: normal;
+			line-height: 2rem;
+			text-decoration-line: underline;
+			cursor: pointer;
+		}
+	}
+	.instructions {
+		@include font-weight("normal");
+		@include font-size(1);
+		margin-top: 0.5rem;
+		color: $textGray3;
+		font-style: italic;
+		line-height: 1rem;
+	}
+	.sub-instructions {
+		margin-top: 0.5rem;
+	}
+}

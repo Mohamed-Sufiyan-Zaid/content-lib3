@@ -1,0 +1,505 @@
+openapi: 3.0.0
+info:
+  title: Project and Document Service API
+  version: 1.0.0
+paths:
+  /project/mine:
+    get:
+      tags:
+        - project
+      summary: Get Projects for a user
+      parameters:
+        - name: nt_id
+          in: query
+          description: User Id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+  /project:
+    post:
+      tags:
+        - project
+      summary: Create a New Project
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+      responses:
+        '201':
+          description: Project created successfully
+
+  /project/{projectId}:
+    get:
+      tags:
+        - project
+      summary: Get Project by ID
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+    put:
+      tags:
+        - project
+      summary: Update Project by ID
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+      responses:
+        '200':
+          description: Project updated successfully
+    delete:
+      tags:
+        - project
+      summary: Delete Project by ID
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Project deleted successfully
+    
+  /project/{project_id}/templates:
+    get:
+      tags:
+        - template
+      summary: Get Templates for a project
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Template'
+  /project/{project_id}/template:
+    post:
+      tags:
+        - template
+      summary: Create a New Template
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Template'
+      responses:
+        '201':
+          description: Template created successfully
+
+  /project/{project_id}/template/{template_id}:
+    get:
+      tags:
+        - template
+      summary: Get Template by ID
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: template_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Template'
+    put:
+      tags:
+        - template
+      summary: Update Template by ID
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: template_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Template'
+      responses:
+        '200':
+          description: Template updated successfully
+    delete:
+      tags:
+        - template
+      summary: Delete Template by ID
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: template_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Template deleted successfully
+
+  /project/{project_id}/documents:
+    get:
+      tags:
+        - document
+      summary: Get Documents
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Document'
+  /project/{project_id}/document:
+    post:
+      tags:
+        - document
+      summary: Create a New Document.
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Document'
+      responses:
+        '201':
+          description: Document created successfully
+
+  /project/{project_id}/document/{documentId}:
+    get:
+      tags:
+        - document
+      summary: Get Document by ID
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+    put:
+      tags:
+        - document
+      summary: Update Document by ID
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Document'
+      responses:
+        '200':
+          description: Document updated successfully
+    delete:
+      tags:
+        - document
+      summary: Delete Document by ID
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Document deleted successfully
+  /chat_history/{chat_history_id}:
+    get:
+      tags:
+        - chat history
+      summary: Get Chat History by ID
+      parameters:
+        - name: chat_history_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatHistory'
+
+    put:
+      tags:
+        - chat history
+      summary: Update Chat History by ID
+      parameters:
+        - name: chat_history_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatHistory'
+      responses:
+        '200':
+          description: Chat history updated successfully
+
+components:
+  schemas:
+    Project:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        domain_id:
+          type: string
+          format: uuid
+        sub_domain_id:
+          type: string
+          format: uuid
+        nt_id:
+          type: string
+          format: uuid
+        group_name:
+          type: string
+        project_name:
+          type: string
+        version:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+        created_by:
+          type: string
+          format: uuid
+        modified_at:
+          type: string
+          format: date-time
+        lastModified_by:
+          type: string
+          format: uuid
+
+    Template:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        template_name:
+          type: string
+        s3_bucket_path:
+          type: string
+        project_id:
+          type: string
+          format: uuid
+        template_creation_type:
+          type: string
+          enum:
+            - CREATED
+            - UPLOADED
+        template_file_type:
+          type: string
+          enum:
+            - WORD
+            - PDF
+        placeholders:
+          type: array
+          items:
+            $ref: '#/components/schemas/TemplatePlaceholder'
+        created_at:
+          type: string
+          format: date-time
+        created_by:
+          type: string
+          format: uuid
+        modified_at:
+          type: string
+          format: date-time
+        lastModified_by:
+          type: string
+          format: uuid
+    
+    TemplatePlaceholder:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        template_id:
+          type: string
+          format: uuid
+
+    DocumentPlaceholder:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        doc_id:
+          type: string
+          format: uuid
+        template_placeholder_id:
+          type: string
+          format: uuid
+        chat_history_id:
+        # will be null when creating a document
+          type: string
+          format: uuid
+          
+    Document:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        doc_name:
+          type: string
+        domain_id:
+          type: string
+          format: uuid
+        sub_domain_id:
+          type: integer
+        s3_bucket_path:
+          type: string
+        template_id:
+          type: string
+          format: uuid
+        project_id:
+          type: string
+          format: uuid
+        default_prompt_ids:
+          type: array
+          items:
+            type: integer
+        default_prompt_text:
+          type: array
+          items:
+            type: string
+        content_library:
+          type: string
+        content_library_metadata:
+          type: string
+        placeholders:
+          type: array
+          items:
+            $ref: '#/components/schemas/DocumentPlaceholder'
+        created_at:
+          type: string
+          format: date-time
+        created_by:
+          type: string
+          format: uuid
+        modified_at:
+          type: string
+          format: date-time
+        lastModified_by:
+          type: string
+          format: uuid
+          
+    ChatHistory:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        chat_history:
+          type: object

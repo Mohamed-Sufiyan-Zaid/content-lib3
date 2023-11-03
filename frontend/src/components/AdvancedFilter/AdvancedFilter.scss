@@ -1,0 +1,10 @@
+@import "../../styles/typography.scss";
+
+.advanced-filters-container {
+	.sub-heading {
+		@include font-weight("bold");
+	}
+	.border-bottom {
+		border: 1px solid;
+	}
+}

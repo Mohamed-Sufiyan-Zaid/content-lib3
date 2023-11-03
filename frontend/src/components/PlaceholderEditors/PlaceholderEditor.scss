@@ -1,0 +1,17 @@
+@import "../../styles/typography.scss";
+@import "../../styles/variables.scss";
+
+.placeholder-editor {
+	.placeholder-editor-content {
+		color: $textBlack;
+		@include font-size(3);
+		@include font-weight("normal");
+		font-style: normal;
+		.placeholder-editor-btn {
+			width: min-content;
+		}
+	}
+	.MuiInputBase-multiline {
+		background-color: $neutral3;
+	}
+}

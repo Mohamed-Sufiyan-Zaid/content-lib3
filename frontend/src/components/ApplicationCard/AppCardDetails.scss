@@ -1,0 +1,16 @@
+@import "../../styles/typography.scss";
+@import "../../styles/variables.scss";
+
+.app-card-details {
+	.app-card-details-title {
+		color: $textLightGray2;
+	}
+	.app-card-details-title,
+	.app-card-details-value {
+		@include font-size(3);
+	}
+	.app-card-details-value {
+		color: $textBlack;
+		@include font-weight("semi-bold");
+	}
+}

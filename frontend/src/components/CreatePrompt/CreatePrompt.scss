@@ -1,0 +1,11 @@
+@import "../../styles/variables.scss";
+.create-prompt {
+	.tags-input-container {
+		border: 1px solid $fieldBorder1;
+		border-radius: 4px;
+		.tags-input {
+			display: flex;
+			align-items: center;
+		}
+	}
+}

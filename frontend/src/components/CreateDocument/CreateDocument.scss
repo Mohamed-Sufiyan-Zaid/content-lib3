@@ -1,0 +1,8 @@
+@import "../../styles/typography.scss";
+
+.create-document-container {
+	width: 34.375rem;
+	@media screen and (min-width: 1440px) {
+		width: 40.75rem;
+	}
+}

@@ -1,0 +1,25 @@
+@import "../../styles/typography.scss";
+@import "../../styles/variables.scss";
+
+.content-library-container {
+	margin: 24px 40px;
+	.MuiChip-root {
+		border-radius: 6px;
+		background-color: $textLightGray1;
+	}
+	& .doc-heading {
+		color: $textBlackPrimary;
+		@include font-size(6);
+		@include font-weight("bolder");
+	}
+	.pull-right {
+		float: right;
+	}
+	.content {
+		margin-top: 20px;
+	}
+	.row {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+}

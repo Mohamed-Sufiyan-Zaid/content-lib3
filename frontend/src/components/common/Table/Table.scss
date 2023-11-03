@@ -1,0 +1,21 @@
+@import "../../../styles/typography.scss";
+@import "../../../styles/variables.scss";
+
+.table-container {
+	.no-records {
+		min-height: 200px;
+		background-color: $background2;
+		color: $textLightGray2;
+		font-style: italic;
+	}
+	.pagination-container {
+		.records-count {
+			@include font-size(1);
+			font-style: italic;
+			color: $textGray2;
+		}
+		p {
+			margin: 0;
+		}
+	}
+}

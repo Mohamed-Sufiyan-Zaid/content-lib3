@@ -1,0 +1,23 @@
+export const commonText = {
+  or: "or",
+  cancel: "Cancel",
+  backIconAlt: "Back icon",
+  editIconAlt: "Edit",
+  downloadIconAlt: "Download",
+  createdOn: "Created on",
+  by: "by",
+  save: "Save",
+  tagsText: "Tags",
+  send: "Send",
+  viewDetails: "View Details",
+  groupLabel: "Group",
+  groupPlaceHolder: "Select a group",
+  domainLabel: "Domain",
+  subDomainLabel: "Sub Domain",
+  categoryLabel: "Category",
+  domainSelectionPlaceholder: "Select a domain",
+  domainTextPlaceholder: "Enter a domain",
+  subDomainSelectionPlaceholder: "Select a sub domain",
+  subDomainTextPlaceholder: "Enter a sub domain",
+  categoryPlaceholder: "Enter a category"
+};

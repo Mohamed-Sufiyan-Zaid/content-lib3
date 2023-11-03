@@ -1,0 +1,25 @@
+{
+    "printWidth": 150,
+    "singleQuote": false,
+    "tabWidth": 2,
+    "trailingComma": "none",
+    "bracketSpacing": true,
+    "endOfLine": "auto",
+    "quoteProps": "consistent",
+    "overrides": [
+      {
+        "files": "*.scss",
+        "options": {
+          "useTabs": true,
+          "tabWidth": 2
+        }
+      },
+      {
+        "files": "package.json",
+        "options": {
+          "useTabs": true,
+          "tabWidth": 2
+        }
+      }
+    ]
+  }

@@ -1,0 +1,113 @@
+<html
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<title></title>
+
+<style>
+.author-section {
+    mso-pagination:widow-orphan;
+    font-size:8px;
+}
+
+.author-text {
+    width: 210px;
+}
+
+.page-header {
+    font-size: 12px;
+    font-weight: bold;
+    color: #000;
+    mso-pagination:widow-orphan;
+}
+
+
+@page page-content {
+    size:8.5in 11.0in;
+    margin:1.0in 1.0in 1.0in 1.0in;
+    mso-header-margin:.5in;
+    mso-footer-margin:.5in;
+    mso-header: h1;
+    mso-footer: f1;
+    mso-first-header: fh1;
+    mso-first-footer: ff1;
+    mso-paper-source:0;
+}
+
+body { 
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+div.page-content {
+    page:page-content;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.page-footer {
+    font-size: 8px;
+    text-align: center;
+}
+
+table#page-header-footer {
+    margin:0in 0in 0in 900in;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+.watermark {
+    font-family: Arial, Helvetica, sans-serif; 
+    font-weight: bold;
+    font-size: 100px;
+    margin-top: 370px;
+}
+
+</style>
+</head>
+
+<body lang=EN-US style="tab-interval:.5in">
+    <div id="page-data" class=page-content>
+    </div>
+
+    <br/>
+    <table id="page-header-footer" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <div style="mso-element:header" id=h1>
+                    <div>
+                        <table>
+                            <tr class="page-header">
+                                <td align="left" width="400" id="document-title"></td>
+                                <td align="right" width="400">
+                                    Pfizer
+                                </td>
+                            </tr>
+                            <div style="mso-element-wrap:none;mso-element-left:center;mso-style-textfill-fill-color:#999da0;"><div class="watermark" id="watermark"></div></div>
+                        </table>
+                    </div>
+                </div>
+                <div style="mso-element:footer" id=f1>
+                    <div class="page-footer">
+                        <div>Printed or downloaded documents must be verified against the effective version. Think before you print! Print double-sided!</div>
+                        <div><span class="bold-text">CONFIDENTIAL</span>. Do not distribute outside of Pfizer without Quality approval or a confidentiality agreement. This copy was</div>
+                        <div>
+                        <table>
+                            <tr class="author-section">
+                                <td class="author-text" align="left">retreived on <span id="publish-date"></span></td>
+                                <td class="author-text" align="center">by <span id="author-name"></span></td>
+                                <td class="author-text" align="center">on <span id="publish-time"></span></td>
+                                <td class="author-text" align="right">Page <span style="mso-field-code: PAGE "><span style="mso-no-proof:yes"></span></span> of <span style="mso-field-code: NUMPAGES "></span></td>
+                            </tr>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

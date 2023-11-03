@@ -1,0 +1,15 @@
+@import "../../styles/typography.scss";
+
+.title-typography {
+	color: #938e8e;
+	font-family: "Noto Sans", sans-serif;
+	@include font-size(3);
+	@include font-weight("semi-bold");
+}
+
+.value-typography {
+	color: #000;
+	font-family: "Noto Sans", sans-serif;
+	@include font-size(4);
+	@include font-weight("bold-600");
+}

@@ -1,0 +1,19 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/typography.scss";
+
+.nav-path {
+	p {
+		@include font-size(2);
+		color: $breadCrumbDisableTxt;
+	}
+
+	a {
+		color: $textHeading3;
+		cursor: pointer;
+		text-decoration: none;
+		@include font-size(2);
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}

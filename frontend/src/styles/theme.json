@@ -1,0 +1,70 @@
+{
+  "mode": "light",
+  "colors": {
+    "primary": "#2B50BA",
+    "secondary1": "#ffffff",
+    "secondary2": "#e6f4ff",
+    "secondary3": "#1C357E",
+    "neutral1": "#525252",
+    "neutral2": "#EDF2F4",
+    "neutral3": "#FFFFFF",
+    "statusError": "#EB4747",
+    "statusSuccess": "#30AB30",
+    "statusInProgress": "#FEB343",
+    "background1": "#F9F9F9",
+    "outline1": "#C1C7CD",
+    "outline2": "#DEE0E6",
+    "instructionText1": "#CACACA",
+    "instructionText2": "#938E8E",
+    "disabled": "#949494",
+    "black": "#000000",
+    "white": "#ffffff",
+    "suggestionsText": "#66BFFF",
+    "progressBar": "#F8DF5A"
+  },
+  "font": {
+    "fontFamilies": {
+      "fontFamily1": "sans-serif"
+    },
+    "fontSizes": {
+      "heading1": "40px",
+      "heading2": "36px",
+      "heading3": "32px",
+      "3xl": "32px",
+      "2xl": "24px",
+      "xl": "20px",
+      "l": "18px",
+      "base": "16px",
+      "sm": "14px",
+      "xs": "12px"
+    },
+    "fontWeights": {
+      "normal": "400",
+      "bold": "700",
+      "semiBold": "500"
+    }
+  },
+  "button": {
+    "dimensions": {
+      "widthBasic": "155px",
+      "heightBasic": "40px",
+      "radius": "39px"
+    }
+  },
+  "input": {
+    "background": "#f6f6f6",
+    "dimensions": {
+      "paddingSmY": "0.5rem",
+      "paddingMdY": "16.5px"
+    }
+  },
+  "select": {
+    "placeholderColor": "#A0A0A0"
+  },
+  "divider": {
+    "borderColor": "#A1AAB1"
+  },
+  "borderType": {
+    "DASHED": "dashed"
+  }
+}

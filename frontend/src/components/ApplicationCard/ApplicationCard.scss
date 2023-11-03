@@ -1,0 +1,44 @@
+@import "../../styles/typography.scss";
+@import "../../styles/variables.scss";
+
+.app-card {
+	margin: 0 auto;
+	padding: 1.5rem;
+	text-align: center;
+
+	.app-card-title {
+		font-family: Noto Sans;
+		@include font-size(5);
+		@include font-weight("bold-600");
+		color: $primary;
+	}
+	.app-card-desc {
+		color: $textBlack;
+		@include font-size(4);
+		min-height: 4.5rem;
+	}
+	.disabled-app-card {
+		color: $textLightGray2;
+		font-style: italic;
+		min-height: 10.2rem;
+	}
+	.app-card-data {
+		// bootstrap mt-4 and mt-5 is 1.5 and 3 rem respectively
+		margin-top: 8px;
+	}
+	.app-card-divider {
+		width: 0.0625rem;
+		height: auto;
+		border-right: 1px solid $textLightGray1;
+	}
+	.app-btns {
+		gap: 4px;
+	}
+}
+
+@media (max-width: 1439px) {
+	.app-card {
+		min-width: 16.375rem;
+		min-height: 20.375rem;
+	}
+}

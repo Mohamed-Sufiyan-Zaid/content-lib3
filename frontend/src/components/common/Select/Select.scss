@@ -1,0 +1,17 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/typography.scss";
+
+.MuiMenuItem-root {
+	.custom-select-menu-item {
+		width: 100%;
+		height: 100%;
+		border-bottom: 1px solid $textLightGray1;
+		padding: 8px 0;
+		@media screen and (min-width: 1440px) {
+			padding: 12px 0;
+		}
+		&.last {
+			border-bottom: none;
+		}
+	}
+}

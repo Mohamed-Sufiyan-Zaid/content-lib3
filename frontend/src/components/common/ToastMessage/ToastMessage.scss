@@ -1,0 +1,7 @@
+@import "../../../styles/typography.scss";
+.toast-alert {
+	background-color: #292929;
+	color: #fff;
+	@include font-size(2);
+	@include font-weight();
+}

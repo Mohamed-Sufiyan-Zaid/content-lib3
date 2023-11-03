@@ -1,0 +1,12 @@
+@import "../../styles//typography.scss";
+@import "../../styles/variables.scss";
+
+.home-container {
+	.heading {
+		color: $textBlack;
+		@include font-size(5);
+		@include font-weight();
+		margin-top: 1.75rem;
+		margin-bottom: 1.5rem;
+	}
+}

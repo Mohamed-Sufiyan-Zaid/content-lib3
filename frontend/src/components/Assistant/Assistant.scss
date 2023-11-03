@@ -1,0 +1,45 @@
+@import "../../styles/typography.scss";
+@import "../../styles/variables.scss";
+
+.loading-assistant-backdrop {
+	background: $background5;
+}
+.assitant-comp {
+	padding: 0 0 0 1rem;
+	margin-right: 1rem;
+	height: calc(98vh - #{$headerMinHeight});
+	border-left: 1px solid $fieldBorder3;
+	position: relative;
+	.assistant-loader {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+	}
+	ul {
+		padding-left: 1rem;
+		list-style-type: none;
+		li {
+			margin: 10px 0;
+			// Style the header within each list item
+			span {
+				@include font-weight("bold");
+			}
+		}
+	}
+	.prompt-assistant {
+		height: 100%;
+		overflow: auto;
+		margin-top: 0.5rem;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		.suggestions-box {
+			position: sticky;
+			bottom: 0;
+		}
+		.messages-container {
+			flex: 1;
+			overflow: auto;
+		}
+	}
+}

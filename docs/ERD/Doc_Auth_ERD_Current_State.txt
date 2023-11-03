@@ -1,0 +1,86 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+Table domain {
+  id integer [primary key]
+  name varchar
+}
+Table subdomain {
+  id integer [primary key]
+  name varchar
+  domain_id integer
+}
+Table user as U {
+  user_id integer [primary key]
+  user_name varchar
+  user_type varchar
+}
+Table adminconfig as AC {
+  id integer [primary key]
+  domain_id integer
+  sub_domain_id integer
+}
+Table projects as P {
+  id integer [primary Key]
+  admin_config_id varchar [ref: - AC.id]
+  nt_id integer [ref: - U.user_id]
+  project_name varchar
+  version integer
+  last_modified_by timestamp
+  group_name varchar
+}
+
+enum creation_type {
+    CREATED
+    UPLOADED
+}
+enum file_type {
+    WORD
+    PDF
+}
+
+Table template as T {
+  id integer [primary key]
+  template_name varchar
+  s3_bucket_path varchar
+  project_id integer [ref: > P.id]
+  template_creation_type creation_type
+  template_file_type file_type [default: 'WORD']
+  created_date timestamp
+  updated_date timestamp
+}
+
+Table templateplaceholder as TP {
+  id varchar [primary key]
+  template_id integer [ref: > T.id]
+}
+
+Table document as D{
+  id integer [primary key]
+  doc_name varchar
+  admin_config_id integer [ref: - AC.id]
+  s3_bucket_path varchar
+  template_id integer [ref: > T.id]
+  project_id integer [ref: > P.id]
+  default_prompt_ids list(int)
+  default_prompt_text list(varchar)
+  created_At timestamp
+  content_library varchar
+  content_library_metadata varchar
+  doc_author integer
+}
+
+Table documentplaceholder {
+  id integer [primary key]
+  doc_id integer [ref: > D.id]
+  template_placeholder_id integer [ref: > TP.id]
+  chat_history_id varchar
+}
+
+Table chathistory {
+  id integer [primary key]
+  chat_history JSON
+}
+
+Ref: subdomain.domain_id > domain.id // many-to-one
+Ref: adminconfig.domain_id > domain.id // many-to-one
+Ref: adminconfig.sub_domain_id > subdomain.id // many-to-one

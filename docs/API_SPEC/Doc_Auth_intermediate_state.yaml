@@ -1,0 +1,962 @@
+openapi: 3.0.0
+info:
+  title: Doc Authoring Service
+  version: '0.1'
+paths:
+  /admin-config:
+    get:
+      tags:
+        - admin-config
+      summary: Get All Admin Configs
+      description: |-
+        [Get List of all admin_configs]
+
+        Raises:
+            error: [Error details]
+
+        Returns:
+            [list]: [List of AdminConfigs]
+      operationId: get_all_admin_configs_doc_auth_get_admin_config_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /domains:
+    get:
+      tags:
+        - domain
+      summary: Get All Domains
+      description: |-
+        [Get List of all domains]
+
+        Raises:
+            error: [Error details]
+
+        Returns:
+            [list]: [List of domains]
+      operationId: get_all_domains_doc_auth_get_domains_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /sub-domains:
+    get:
+      tags:
+        - domain
+      summary: Get All Subdomains
+      description: |-
+        [Get List of all subdomains]
+
+        Raises:
+            error: [Error details]
+
+        Returns:
+            [list]: [List of subdomains]
+      operationId: get_all_subdomains_doc_auth_get_sub_domains_get
+      parameters:
+        - name: domain_id
+          in: query
+          required: true
+          schema:
+            type: integer
+            title: Domain Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /project:
+    post:
+      tags:
+        - project
+      summary: Create Project
+      description: |-
+        [API router to create new project into the system]
+
+        Args:
+            create_project_request (create): [New project details]
+
+        Raises:
+            HTTPException: [Unauthorized exception when invalid token is passed]
+            error: [Exception in underlying controller]
+
+        Returns:
+            [createResponse]: [create new project response]
+      operationId: create_project_doc_auth_project_post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    put:
+      tags:
+        - project
+      summary: Update Project
+      description: |-
+        [Update project by project name]
+
+        Raises:
+            error: [Error details]
+
+        Returns:
+            [str]: [Success response]
+      operationId: update_project_doc_auth_project_put
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateProjectRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+        - project
+      summary: Delete Project
+      description: |-
+        [Get List of all project]
+
+        Raises:
+            error: [Error details]
+
+        Returns:
+            [str]: [Success response]
+      operationId: delete_project_doc_auth_project_delete
+      parameters:
+        - name: project_id
+          in: query
+          required: true
+          schema:
+            type: integer
+            title: Project Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /project/mine:
+    get:
+      tags:
+        - project
+      summary: Get Ntid Projects
+      description: |-
+        [Get List of all projects]
+
+        Raises:
+            error: [Error details]
+
+        Returns:
+            [list]: [List of projects]
+      operationId: get_ntid_projects_doc_auth_projects_get
+      parameters:
+        - name: ntid
+          in: query
+          required: true
+          schema:
+            type: string
+            title: Ntid
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /template:
+    post:
+      tags:
+        - template
+      summary: Create Template
+      description: |-
+        [API router to create new template into the system]
+
+        Args:
+            request (create): [New template details]
+
+        Raises:
+            HTTPException: [Unauthorized exception when invalid token is passed]
+            error: [Exception in underlying controller]
+
+        Returns:
+            [createResponse]: [create new template response]
+      operationId: create_template_doc_auth_template_post
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_create_template_doc_auth_template_post'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /template/{template_id}:
+    get:
+      tags:
+        - template
+      summary: Get Template
+      description: |-
+        [Get template by ID]
+
+        Args:
+            id: [Template id to look for]
+
+        Raises:
+            HTTPException: [Not found exception]
+            error: [Error details]
+
+        Returns:
+            [dict]: [Template]
+      operationId: get_template_by_id_doc_auth_template_details_get
+      parameters:
+        - name: template_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: Template Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    put:
+      tags:
+        - template
+      summary: Update Template
+      description: |-
+        [Updates template by ID]
+
+        Args:
+            id: [Template id to look for]
+            update_template_request: [New template request]
+
+        Raises:
+            HTTPException: [Not found exception]
+            error: [Error details]
+
+        Returns:
+            [dict]: [Updated template]
+      operationId: update_template_doc_auth_template_put
+      parameters:
+        - name: template_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: Template Id
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_update_template_doc_auth_template_put'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+        - template
+      summary: Delete Template
+      description: |-
+        [Delete template]
+
+        Raises:
+            error: [Error details]
+
+        Returns:
+            [str]: [Success response]
+      operationId: delete_template_doc_auth_template_delete
+      parameters:
+        - name: template_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: Template Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /template/all:
+    get:
+      tags:
+        - template
+      summary: Get All Templates
+      description: |-
+        [Get List of all templates]
+
+        Raises:
+            error: [Error details]
+
+        Returns:
+            [list]: [List of templates]
+      operationId: get_all_templates_doc_auth_all_templates_get
+      parameters:
+        - name: project_id
+          in: query
+          required: true
+          schema:
+            type: integer
+            title: Project Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /document/all:
+    get:
+      tags:
+        - document
+      summary: Get All Documents
+      description: |-
+        [Get List of all documents]
+
+        Raises:
+            error: [Error details]
+
+        Returns:
+            [list]: [List of documents]
+      operationId: get_all_documents_doc_auth_all_documents_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /document/mine:
+    get:
+      tags:
+        - document
+      summary: Get Documents By Ntid
+      description: |-
+        [Get List of all documents by nt_id]
+
+        Raises:
+            error: [Error details]
+
+        Returns:
+            [list]: [List of documents]
+      operationId: get_documents_by_ntid_doc_auth_documents_nt_id_get
+      parameters:
+        - name: nt_id
+          in: query
+          required: true
+          schema:
+            type: string
+            title: Nt Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /document:
+    post:
+      tags:
+        - document
+      summary: Create Document
+      description: |-
+        [API router to create new document into the system]
+
+        Args:
+            create_document_request (create): [New document details]
+
+        Raises:
+            HTTPException: [Unauthorized exception when invalid token is passed]
+            error: [Exception in underlying controller]
+
+        Returns:
+            [createResponse]: [create new document response]
+      operationId: create_document_doc_auth_create_document_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /document/{document_id}:
+    get:
+      tags:
+        - document
+      summary: Get By Id
+      description: |-
+        [Get document by id]
+
+        Raises:
+            error: [Error details]
+
+        Returns:
+            dict: document record
+      operationId: get_by_id_doc_auth_get_document_by_id_get
+      parameters:
+        - name: document_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    put:
+      tags:
+        - document
+      summary: Update Document
+      description: |-
+        [Update document by document name]
+
+        Raises:
+            error: [Error details]
+
+        Returns:
+            [str]: [Success response]
+      operationId: update_document_doc_auth_update_document_put
+      parameters:
+        - name: document_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: Id
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_update_document_doc_auth_update_document_put'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+        - document
+      summary: Delete Document
+      description: |-
+        [Get List of all document]
+
+        Raises:
+            error: [Error details]
+
+        Returns:
+            [str]: [Success response]
+      operationId: delete_document_doc_auth_delete_document_delete
+      parameters:
+        - name: document_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: Document Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /document/{document_name}:
+    get:
+      tags:
+        - document
+      summary: Get Document By Name
+      description: |-
+        [Get document by name]
+
+        Raises:
+            error: [Error details]
+
+        Returns:
+            dict: document record
+      operationId: get_document_by_id_doc_auth_get_document_by_name_get
+      parameters:
+        - name: document_name
+          in: path
+          required: true
+          schema:
+            type: string
+            title: Name
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /document/{project_id}:
+    get:
+      tags:
+        - document
+      summary: Get Document By Id
+      description: |-
+        [Get document by project id]
+
+        Raises:
+            error: [Error details]
+
+        Returns:
+            dict: document record
+      operationId: get_document_by_id_doc_auth_get_document_by_project_id_get
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: Project Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /chat-history:
+    get:
+      tags:
+        - chat history
+      summary: Fetch Chat History
+      description: |-
+        [API router to fetch chat history by id]
+
+        Args:
+            id: chat id
+
+        Raises:
+            HTTPException: [Unauthorized exception when invalid token is passed]
+            error: [Exception in underlying controller]
+
+        Returns:
+            [chat history][List]: [chat history response]
+      operationId: fetch_chat_history_doc_auth_chat_history_get
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: integer
+            title: Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      tags:
+        - chat history
+      summary: Update Chat History
+      description: |-
+        [API router to update chat history by id]
+
+        Args:
+            id: chat id
+            chat_history_req (create): [prompt and content details]
+
+        Raises:
+            HTTPException: [Unauthorized exception when invalid token is passed]
+            error: [Exception in underlying controller]
+
+        Returns:
+            [chat history][List]: [chat history response]
+      operationId: update_chat_history_doc_auth_chat_history_post
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: integer
+            title: Id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatHistoryRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /dashboard/count:
+    get:
+      tags:
+        - dashboard
+      summary: Fetch Metric
+      description: |-
+        [Get List of all project]
+
+        Raises:
+            error: [Error details]
+
+        Returns:
+            [str]: [Success response]
+      operationId: fetch_metric_doc_auth_dashboard_count_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /dashboard/stats:
+    get:
+      tags:
+        - dashboard
+      summary: Get Dashboard Stats
+      description: |-
+        [Get dashboard stats by project id]
+
+        Raises:
+            error: [Error details]
+
+        Returns:
+            dict: dashboard stats
+      operationId: get_dashboard_stats_doc_auth_dashboard_stats_project_id_get
+      parameters:
+        - name: project_id
+          in: query
+          required: true
+          schema:
+            type: integer
+            title: Project Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /health_check:
+    get:
+      tags:
+        - Health check
+      summary: Health Check
+      operationId: health_check_doc_auth_health_check_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+components:
+  schemas:
+    Body_create_template_doc_auth_template_post:
+      properties:
+        request:
+          type: string
+          title: Request
+        fileb:
+          type: string
+          format: binary
+          title: Fileb
+      type: object
+      required:
+        - request
+        - fileb
+      title: Body_create_template_doc_auth_template_post
+    Body_update_document_doc_auth_update_document_put:
+      properties:
+        update_document_request:
+          type: string
+          title: Update Document Request
+        html_file:
+          type: string
+          format: binary
+          title: Html File
+      type: object
+      required:
+        - update_document_request
+        - html_file
+      title: Body_update_document_doc_auth_update_document_put
+    Body_update_template_doc_auth_template_put:
+      properties:
+        request:
+          type: string
+          title: Request
+        fileb:
+          type: string
+          format: binary
+          title: Fileb
+      type: object
+      required:
+        - request
+        - fileb
+      title: Body_update_template_doc_auth_template_put
+    ChatHistoryRequest:
+      properties:
+        chat_history:
+          items:
+            type: object
+          type: array
+          title: Chat History
+      type: object
+      required:
+        - chat_history
+      title: ChatHistoryRequest
+    DocumentRequest:
+      properties:
+        doc_name:
+          type: string
+          title: Doc Name
+        template_id:
+          type: integer
+          title: Template Id
+        project_id:
+          type: integer
+          title: Project Id
+        content_library:
+          type: string
+          title: Content Library
+        content_library_metadata:
+          type: string
+          title: Content Library Metadata
+        doc_author:
+          type: string
+          title: Doc Author
+      type: object
+      required:
+        - doc_name
+        - template_id
+        - project_id
+        - content_library
+        - content_library_metadata
+        - doc_author
+      title: DocumentRequest
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ProjectRequest:
+      properties:
+        ntid:
+          type: string
+          title: Ntid
+        domain_name:
+          type: string
+          title: Domain Name
+        sub_domain_name:
+          type: string
+          title: Sub Domain Name
+        project_name:
+          type: string
+          title: Project Name
+        group_name:
+          type: string
+          title: Group Name
+      type: object
+      required:
+        - ntid
+        - domain_name
+        - sub_domain_name
+        - project_name
+        - group_name
+      title: ProjectRequest
+    UpdateProjectRequest:
+      properties:
+        ntid:
+          type: string
+          title: Ntid
+        domain_name:
+          type: string
+          title: Domain Name
+        sub_domain_name:
+          type: string
+          title: Sub Domain Name
+        project_name:
+          type: string
+          title: Project Name
+        project_id:
+          type: integer
+          title: Project Id
+        group_name:
+          type: string
+          title: Group Name
+      type: object
+      required:
+        - ntid
+        - domain_name
+        - sub_domain_name
+        - project_name
+        - project_id
+        - group_name
+      title: UpdateProjectRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+              - type: string
+              - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+        - loc
+        - msg
+        - type
+      title: ValidationError
